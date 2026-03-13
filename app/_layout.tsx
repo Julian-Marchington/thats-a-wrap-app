@@ -1,24 +1,52 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Stack, router, useSegments } from "expo-router";
+import { useEffect } from "react";
+import { ActivityIndicator, View } from "react-native";
+import { AuthProvider, useAuth } from "../features/auth/AuthProvider";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+const queryClient = new QueryClient();
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+function InitialLayout() {
+  const { session, loading } = useAuth();
+  const segments = useSegments();
+
+  useEffect(() => {
+    if (loading) return;
+
+    const inAppGroup = segments[0] === "(app)";
+    const inPublicGroup = segments[0] === "(public)";
+
+    if (session && !inAppGroup) {
+      router.replace("/(app)/home");
+    } else if (!session && !inPublicGroup) {
+      router.replace("/(public)");
+    }
+  }, [session, loading, segments]);
+
+  if (loading) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#fff",
+        }}
+      >
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
+  return <Stack screenOptions={{ headerShown: false }} />;
+}
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <InitialLayout />
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
