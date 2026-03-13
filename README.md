@@ -1,50 +1,55 @@
-# Welcome to your Expo app 👋
+# That's A Wrap 🎁
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern gift planning and wishlist app built to make occasions, gift ideas, and group coordination feel simple instead of chaotic.
 
-## Get started
+## Overview
 
-1. Install dependencies
+**That's A Wrap** helps users organise gifts around special occasions, keep track of wishlists, and manage items in a clean, user-friendly interface. The app is designed to make the whole process of planning, browsing, claiming, and tracking gifts feel smooth and intuitive.
 
-   ```bash
-   npm install
-   ```
+Whether it’s birthdays, holidays, anniversaries, or other events, the goal is to reduce the usual mess of forgotten ideas, duplicate presents, and scattered notes.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## Features
 
-In the output, you'll find options to open the app in a
+- Create and manage **occasions**
+- Build and browse **wishlists**
+- Add gift ideas with relevant details
+- Mark items as **claimed** to avoid duplicate purchases
+- Clean, mobile-friendly interface
+- Structured routing for occasions, wishlists, and item views
+- Authentication and user-specific data
+- Designed for a smooth gifting workflow from planning to purchase
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Tech Stack
 
-## Get a fresh project
+This project is built with modern web technologies, including:
 
-When you're ready, run:
+- **React Native / Expo**
+- **TypeScript**
+- **Expo Router**
+- **Supabase** for backend and authentication
+- **PostgreSQL** via Supabase
+- **Tailwind / NativeWind** or custom styling depending on setup
+
+> Update this section if your stack differs slightly. Humans do love inventing seventeen versions of the same frontend stack.
+
+---
+
+## Project Structure
+
+Example structure:
 
 ```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+app/
+  (public)/
+  (app)/
+    home/
+    occasions/
+    wishlists/
+components/
+lib/
+assets/
+supabase/
