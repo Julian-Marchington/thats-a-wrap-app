@@ -1,6 +1,6 @@
-# That's A Wrap 🎁
+# That's A Wrap
 
-A modern gift planning and wishlist app built to make occasions, gift ideas, and group coordination feel simple instead of chaotic.
+A group gift planning and wishlist app built to make occasions, gift ideas, and group coordination feel simple instead of chaotic.
 
 ## Overview
 
@@ -33,8 +33,7 @@ This project is built with modern web technologies, including:
 - **Supabase** for backend and authentication
 - **PostgreSQL** via Supabase
 - **Tailwind / NativeWind** or custom styling depending on setup
-
-> Update this section if your stack differs slightly. Humans do love inventing seventeen versions of the same frontend stack.
+(More to be included)
 
 ---
 
